@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+
 module CLArbiter #(
     parameter NumReq = 3
 )(
@@ -55,7 +56,7 @@ assign maskedReq = req_in & mask;
 
 assign grant_out = (maskedReq == '0) ? unmaskedGrant : maskedGrant;
 
-int r_p;     // time t-1 previous request's place
+int r_p;     // (t = time) t-1 previous request's place(index)
 int Num;
 
 assign test = mask;        // ---DEBUG---      
@@ -63,18 +64,17 @@ assign test2 = r_p;
 assign test3 = Num;
 
 always_comb begin : AssignMask
-    for(int i = 0; i < NumReq; i++) begin       // Get t-1 grant_out's place
+    for(int i = 0; i < NumReq; i++) begin       // Get t-1 grant_out's index
         if(grant_out[i]) begin
-            r_p = i;
+            r_p <= i;
             break;
         end
     end
     if(req_in[r_p])
         maskNext <= mask;        // if previous request still arive, keep it available
     else begin
-        maskNext <= '0;          
-        Num <= (r_p + 1) % NumReq;              // ---OK---
-        maskNext[Num] <= 1'b1;      // Shift request priority  
+        maskNext <= maskNext << 1;              // if previous request is 0, left-shift 1bit
+        if(maskNext == '0) maskNext <= 3'b001;
     end
 end
 
