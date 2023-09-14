@@ -16,4 +16,4 @@
 マスクがうまく更新されません <br>
 [Arbiter](./CLArbiter_230914\CLArbiter.sv)  <br>
 [test bench](./CLArbiter_230914\CLArbiter_tb.sv)  <br>
-![simulation](./CLArbiter_230914\CLArbiter_simulation_1.png)  <br>
+![simulation](./CLArbiter_230914\image/CLArbiter_simulation_1.png)  <br>
