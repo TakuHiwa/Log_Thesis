@@ -19,4 +19,8 @@
 [Arbiter](./CLArbiter_230914/CLArbiter.sv)  <br>
 [test bench](./CLArbiter_230914/CLArbiter_tb.sv)  <br>
 ![simulation](./CLArbiter_230914/image/CLArbiter_simulation_1.PNG)  <br>
-図：シミュレーション　バグあり
+図1：シミュレーション　バグあり 23/09/14
+![simulation](./CLArbiter_230914/image/CLArbiter_simulation_3.PNG)  <br>
+図1：シミュレーション　優先度切り替えなし 23/09/15
+![simulation](./CLArbiter_230914/image/CLArbiter_simulation_2.PNG)  <br>
+図1：シミュレーション　修正したがバグ 23/09/15
