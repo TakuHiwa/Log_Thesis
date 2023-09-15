@@ -58,8 +58,8 @@ initial begin
     #100;
     data1 = 3'b000;
     req_in <= data1; #100;
-    data1 = 3'b001;
-    req_in <= data1; #100
+//    data1 = 3'b001;
+//    req_in <= data1; #100
     data1 = 3'b100;
     req_in <= data1; #100;
     data1 = 3'b111;
@@ -72,7 +72,7 @@ initial begin
     req_in <= data1; #100
     data1 = 3'b011;
     req_in <= data1; #100
-    data1 = 3'b001;
+    data1 = 3'b101;
     req_in <= data1; #100
     data1 = 3'b000;
     req_in <= data1; #100

@@ -56,24 +56,30 @@ assign maskedReq = req_in & mask;
 
 assign grant_out = (maskedReq == '0) ? unmaskedGrant : maskedGrant;
 
-int r_p;     // (t = time) t-1 previous request's place(index)
+int r_p;     // ひとつ前グラントされたリクエストの場所（index）
 int Num;
 
 assign test = mask;        // ---DEBUG---      
 assign test2 = r_p;
 assign test3 = Num;
 
+logic[NumReq-1:0] grant_prev = '0;
+logic[NumReq-1:0] req_prev = '0;
+
 always_comb begin : AssignMask
-    for(int i = 0; i < NumReq; i++) begin       // Get t-1 grant_out's index
-        if(grant_out[i]) begin
+    grant_prev <= grant_out;
+    req_prev <= req_in;
+    for (int i = 0; i < NumReq; i++) begin
+        if(grant_prev[i]) begin
             r_p <= i;
             break;
         end
     end
-    if(req_in[r_p])
-        maskNext <= mask;        // if previous request still arive, keep it available
+
+    if(req_prev[r_p])
+        maskNext <= mask;        // もしリクエストが利用中なら継続させる
     else begin
-        maskNext <= maskNext << 1;              // if previous request is 0, left-shift 1bit
+        maskNext <= maskNext << 1;              // もしそのリクエストが利用を止めたら、1ビット左シフト
         if(maskNext == '0) maskNext <= 3'b001;
     end
 end
