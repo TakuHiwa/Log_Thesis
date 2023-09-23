@@ -22,4 +22,4 @@
 
 ## 3 :new
 説明：論理回路で組みなおしたアービタ <br>
-![schematic](./Arbiter3_230923\092302.PNG)  <br>
+![schematic](./Arbiter3_230923/092302.PNG)  <br>
