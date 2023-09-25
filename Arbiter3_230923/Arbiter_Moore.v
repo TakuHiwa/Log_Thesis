@@ -33,18 +33,19 @@ module Arbiter_Moore(
     wire L01;
     wire L02;
     wire L03;
-    assign L03 = ((~X2) & (~X1) & X0) |
-                (X2 & (~Q1) & Q0) |
-                (X0 & Q1 & (~Q0)); 
+    assign Qp0 = ((~X2) & (~X1) & X0) |
+                (X2 & (~X1) & (~X0)) |
+                (X2 & (~Q1) & (Q0)) |
+                (X0 & (Q1) & (Q0));
     
     wire L11;
     wire L12;
     wire L13;
-    assign L11 = (X1 ^ X0) | (X1 & Q1); 
-    assign L12 = (X1 & Q0) | (X0 & (~Q0));
-    assign L13 = ((~X2) & L11) | (X2 & Q1 & L12);
+    assign Qp1 = ((~X2) & (~X1) & X0) |
+                ((~X2) & X1 & (~X0)) |
+                (X1 & (X0) & (Q1)) |
+                ((~X1) & (X0) & (Q1) & (Q0)) |
+                ((X1) & (~X0) & (Q1) & (~Q0));
     
-    assign Qp0 = L03;
-    assign Qp1 = L13; 
     
 endmodule
