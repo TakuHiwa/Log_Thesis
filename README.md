@@ -20,6 +20,11 @@
 ![simulation](./CLArbiter_230914/image/CLArbiter_simulation_5.PNG)  <br>
 アップで 23/09/15
 
-## 3 :new
+## 3 
 説明：論理回路で組みなおしたアービタ <br>
 ![schematic](./Arbiter3_230923/092302.PNG)  <br>
+### [Arbiter3](./Arbiter3_230923/Arbiter_3.v) <br>
+
+## 4
+説明：4入力アービタ <br>
+### [Arbiter3](./Arbiter4_230925/Arbiter_4_Moore.v) <br>
