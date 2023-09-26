@@ -28,3 +28,9 @@
 ## 4
 説明：4入力アービタ <br>
 ### [Arbiter4](./Arbiter4_230925/Arbiter_4_Moore.v) <br>
+
+## 5
+説明：2入力Mutexを使った3入力アービタ <br>
+![schematic](./Arbiter3_Mutex_230926/092502.PNG)
+### [Arbiter3me](./Arbiter3_Mutex_230926/Arbiter_3.v) <br>
+
