@@ -35,10 +35,11 @@ module Arbiter_4(
     wire L3, L2, L1, L0;
     wire R3, R2, R1, R0;
     
-    Arbiter_2_Mutex me1(clk, X3, X2, L3, L2);
-    Arbiter_2_Mutex me2(clk, X2, X1, R2, L1);
-    Arbiter_2_Mutex me3(clk, X1, X0, R1, L0);
-    Arbiter_2_Mutex me4(clk, X0, X3, R0, R3);
+    Arbiter_3 me1(clk, X3, X2, X1, L3, L2, L1);
+    Arbiter_3 me2(clk, X2, X1, X0, R2, R1, R0);
+
+    assign L0 = X0;
+    assign R3 = X3;
     
     assign Y3 = L3 & R3;
     assign Y2 = L2 & R2;
