@@ -21,7 +21,6 @@
 
 
 module Arbiter_4(
-    input wire clk,
     input wire X3,
     input wire X2,
     input wire X1,
@@ -32,21 +31,21 @@ module Arbiter_4(
     output wire Y0
     );
     
-    wire OA3, OA2, OA1, OA0;
-    wire OB3, OB2, OB1, OB0;
-    wire OC3, OC2, OC1, OC0;
+    wire o31,o32,o33;
+    wire o21,o22,o23;
+    wire o11,o12,o13;
+    wire o01,o02,o03;
+
+    Arbiter_2_Mutex me1(X3, X2, o31, o21);
+    Arbiter_2_Mutex me2(X3, X1, o32, o11);
+    Arbiter_2_Mutex me3(X3, X0, o33, o01);
+    Arbiter_2_Mutex me4(X2, X1, o22, o12);
+    Arbiter_2_Mutex me5(X2, X0, o23, o02);
+    Arbiter_2_Mutex me6(X1, X0, o13, o03);
     
-    Arbiter_3 me3A(clk, X3, X2, X1, OA3, OA2, OA1);
-    Arbiter_3 me3B(clk, X2, X1, X0, OB2, OB1, OB0);
-    Arbiter_3 me3C(clk, X3, X1, X0, OC3, OC1, OC0);
-    
-    assign OA0 = X0;
-    assign OB3 = X3;
-    assign OC2 = X2;
-    
-    assign Y3 = OA3 & OB3 & OC3;
-    assign Y2 = OA2 & OB2 & OC2;
-    assign Y1 = OA1 & OB1 & OC1;
-    assign Y0 = OA0 & OB0 & OC0;
+    assign Y3 = o31 & o32 & o33;
+    assign Y2 = o21 & o22 & o23; 
+    assign Y1 = o11 & o12 & o13;
+    assign Y0 = o01 & o02 & o03;
     
 endmodule

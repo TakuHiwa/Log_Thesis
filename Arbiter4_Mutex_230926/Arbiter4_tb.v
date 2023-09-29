@@ -23,12 +23,10 @@
 module Arbiter4_tb();
 
 parameter Num_Req = 4;
-reg clk;
 reg [Num_Req-1:0] req;
 wire [Num_Req-1:0] grant;
 
-Arbiter_4 ab3_uut(
-    .clk(clk),
+Arbiter_4 ab4_uut(
     .X3(req[3]),
     .X2(req[2]),
     .X1(req[1]),
@@ -41,11 +39,6 @@ Arbiter_4 ab3_uut(
 
 initial begin
     req <= 'bz;
-end
-
-always begin
-    clk <= 0; #10;
-    clk <= 1; #10;
 end
 
 initial begin
