@@ -30,8 +30,10 @@ module Arbiter_2_Mutex(
     wire Q1, Q0;
     wire Qp1, Qp0;
     
-    assign Q1 = ~(X1 & Q0);
-    assign Q0 = ~(X0 & Q1);
+//    assign Q1 = ~(X1 & Q0);
+//    assign Q0 = ~(X0 & Q1);
+    assign Q1 = ~X1 | ~Q0;
+    assign Q0 = ~X0 | ~Q1;
     
     assign Y1 = (~Q1) & (Q0);
     assign Y0 = (Q1) & (~Q0);
