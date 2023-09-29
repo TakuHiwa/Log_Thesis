@@ -38,3 +38,7 @@
 説明：2入力Mutexを使った4入力アービタ <br>
 ### [Arbiter4me](./Arbiter4_Mutex_230926/Arbiter_4.v) <br>
 
+## 6
+説明：2入力Mutexを使った5入力アービタ <br>
+やっとルータが作れる！！ <br>
+### [Arbiter5me](./Arbiter5_Mutex_230929/Arbiter_5.v) <br>
