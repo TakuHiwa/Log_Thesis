@@ -42,3 +42,8 @@
 説明：2入力Mutexを使った5入力アービタ <br>
 やっとルータが作れる！！ <br>
 ### [Arbiter5me](./Arbiter5_Mutex_230929/Arbiter_5.v) <br>
+
+## 7
+説明：Mutex5を使ったNoCルータ <br>
+![schematic](./Router_231001/100101.PNG) 
+### [NoC](./Router_231001/Router.v) <br>
