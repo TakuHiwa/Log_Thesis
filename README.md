@@ -50,5 +50,6 @@
 
 ## 8
 説明：3バッファFIFO <br>
-![schimatic](FIFO_231026/B_SRAM_s.PNG)
+![schimatic](./FIFO_231026/B_SRAM_s.PNG)
 ### [FIFO](./FIFO_231026/FIFO.v) <br>
+![Bug1](./FIFO_231026/simulation_miss.png)

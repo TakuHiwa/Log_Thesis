@@ -20,11 +20,30 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module FIFO(
-
+module FIFO #(
+    parameter width_data = 72*4
+)(
+    input write_en,
+    input [width_data-1:0] write_dt,
+    input read_en,
+//    input reset,
+    input clk,
+    output [width_data-1:0] read_dt
     );
     
-    Comp2 comp();
-    B_SRAM sram();
-
+    wire [1:0] write_pt;
+    wire [1:0] read_pt;
+    
+    AddrCounter writeAddrCounter(.clk(clk), .Q0o(write_pt[0]), .Q1o(write_pt[1]), .Enable(write_en));
+    AddrCounter readAddrCounter(.clk(clk), .Q0o(read_pt[0]), .Q1o(read_pt[1]), .Enable(read_en));
+    
+    B_SRAM sram(
+        .wr_en(write_en),
+        .wr_adr(write_pt),
+        .wr_dt(write_dt),
+        .clk(clk),
+        .rd_adr(read_pt),
+        .rd_dto(read_dt)
+    );
+    
 endmodule
