@@ -47,3 +47,8 @@
 説明：Mutex5を使ったNoCルータ <br>
 ![schematic](./Router_231001/100101.PNG) 
 ### [NoC](./Router_231001/Router.v) <br>
+
+## 8
+説明：3バッファFIFO <br>
+![schimatic](FIFO_231026/B_SRAM_s.PNG)
+### [FIFO](./FIFO_231026/FIFO.v) <br>
