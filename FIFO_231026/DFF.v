@@ -23,6 +23,7 @@
 module DFF(
     input D,
     input clk,
+    input reset,
     output Qo,
     output nQo
     );
@@ -36,7 +37,10 @@ module DFF(
     end
     
     always @(posedge clk) begin
-        Q <= D;
+        if(reset)
+            Q <= 0;
+        else
+            Q <= D;
     end 
     
 endmodule
