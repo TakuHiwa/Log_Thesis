@@ -17,7 +17,7 @@ int main(){
     int valu = 1;
     for (int i = 0; i < 1 << 5; i++)
     {
-        if(i % (1 << 3) == 0) printf("中央!\n");
+        if(i % (1 << 2) == 0) printf("中央!\n");
         putb(i);
     }
     
